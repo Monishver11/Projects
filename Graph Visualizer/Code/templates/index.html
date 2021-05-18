@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<!-- <h1>Template</h1> -->
+
+
+{% endblock %}
+
+{% block body %}
+<div class='main_content'>
+    <div class="dark_blue">
+        <h1 class="Heading">
+            Select the algorithm
+        </h1>
+    <p>This Website helps you visualize some popular MST and Shortest path algorithms.</p>
+    </div>
+    <div class="main_form">
+        <form action="/" method="POST">
+            <div class="cube"></div>
+           <div class="cube"></div>
+           <div class="cube"></div>
+           <div class="cube"></div>
+          <div class="cube"></div>
+            <p class="zoom">Prims: <input type="radio" value="Prims" name="method" checked/><div class="check "></div></p>
+            <p class="zoom">BellManFord: <input type="radio" value="BellManFord" name="method"/><div class="check"><div class="inside"></div></div></p>
+            <p class="zoom">Dijkstra: <input type="radio" value="Dijkstra" name="method" /></p>
+            <p><input type='submit' value="submit" class="zoom"/><div class="check"><div class="inside"></div></div></p>
+        </form>
+    </div>
+
+
+</div>
+{% endblock %}

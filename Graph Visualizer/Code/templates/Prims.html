@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<!-- <h1>Template</h1> -->
+
+
+{% endblock %}
+
+{% block body %}
+<div class='content'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <h1>
+        Prims
+    </h1>
+    <form action="/Prims" method="POST" class="algo_form">
+        <p>No of Nodes: <input type="text" name="nodes" id="nodes" placeholder="Enter No of Nodes" /></p>
+        <p>Enter edges: <textarea name="message" rows="10" cols="100" id="message" placeholder="Enter in this format - node1:node2:edge_weight,node3:node4:edge_weight"></textarea>
+        </p>
+        <p><input type='submit' value="submit" class="zoom"/></p>
+    </form>
+    <button type='submit' name="Update" class="zoom" value="update">Rehydrate previous data using cookies</button>
+    <script>
+       $(function(){
+    $('button[name="Update"]').click(function(){
+        console.log("iiiii","{{request.cookies.get('message')}}")
+        var message="{{request.cookies.get('message')}}"
+        var nodes="{{request.cookies.get('NUM_NODES')}}"
+        try{
+            console.log('{{val}}')
+            if('{{val}}'=="") throw Error("No value saved")
+            document.getElementById('message').value=message
+            document.getElementById('nodes').value=nodes
+            //document.getElementById('source').value='{{val[2]}}'
+        }catch(e){
+            console.warn(e)
+            console.log("in")
+            alert(e);
+        }
+    });
+    });
+    </script>
+
+    <div id="scrap2"><p>Algorithm scrapped from 
+        <a href="https://www.programiz.com/dsa/prim-algorithm" style="color: chartreuse;">programiz</a></p></div>
+    {{ result4|safe }}
+    <script>
+        var dt='{{ result4 }}'
+        console.log(dt)
+    </script>
+
+    {% for your_list_element in points %}
+    <li>{{ your_list_element }}</li>
+    {% endfor %}
+
+</div>
+{% endblock %}

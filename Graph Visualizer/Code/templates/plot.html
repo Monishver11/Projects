@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<!-- <h1>Template</h1> -->
+
+
+{% endblock %}
+
+{% block body %}
+<video width="320" height="240" autoplay controls id="myVideo">
+  <source src="{{ url_for('static', filename='animation.mp4') }}" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<div class="vid_content">
+  <h1>{{ name }} Algorithm</h1>
+  {% if weight %}
+  <p>Sum of weights of edges in MST = {{ weight}} </p>
+  {% endif %}
+</div>
+{% endblock %}
